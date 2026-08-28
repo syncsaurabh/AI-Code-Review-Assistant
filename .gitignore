@@ -1,0 +1,23 @@
+# FastAPI backend
+backend/__pycache__/
+backend/.pytest_cache/
+backend/.venv/
+backend/venv/
+backend/.env
+backend/*.pyc
+
+# React frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+frontend/.env.local
+
+# Operating System
+.DS_Store
+Thumbs.db
+
+# IDE & Editor caches
+.idea/
+.vscode/
+*.swp
+*.swo
