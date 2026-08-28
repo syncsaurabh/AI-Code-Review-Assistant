@@ -14,7 +14,7 @@ app = FastAPI(
 
 # Configure CORS
 # We read origins from the environment or default to common development origins.
-frontend_origins = os.getenv("ALLOWED_ORIGINS", "http://localhost:5173,http://localhost:3000").split(",")
+frontend_origins = os.getenv("ALLOWED_ORIGINS", "http://localhost:5173,http://localhost:3000,https://ai-code-review-assistant-s.netlify.app").split(",")
 
 app.add_middleware(
     CORSMiddleware,
@@ -37,4 +37,6 @@ def health_check():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+    import os
+    port = int(os.getenv("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port, reload=True)

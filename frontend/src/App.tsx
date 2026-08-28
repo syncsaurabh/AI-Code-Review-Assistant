@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+
 interface CodeReviewIssue {
   severity: 'critical' | 'high' | 'medium' | 'low' | 'info';
   category: 'bug' | 'security' | 'performance' | 'code-quality' | 'maintainability' | 'best-practice';
@@ -106,7 +108,7 @@ export default function App() {
     setExpandedIssues({});
 
     try {
-      const response = await fetch('http://localhost:8000/api/v1/review', {
+      const response = await fetch(`${API_URL}/api/v1/review`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
